@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+
+<div ng-app="" ng-controller="namesController">
+
+<p>Filtering input:</p>
+
+<input type="text" ng-model="Mahesh"><br/>
+
+<span ng-repeat="x in me | filter:Mahesh | orderBy:'country'">
+{{x.name | lowercase}} - {{x.country | uppercase}}<br/>
+</span>
+
+</div>
+
+<script>
+function namesController($scope) {
+    $scope.me= [
+        {name:'Jani',country:'Norway'},
+        {name:'Hege',country:'Sweden'},
+        {name:'Kai',country:'Denmark'}
+    ];
+}
+</script>
+
+</body>
+</html>
