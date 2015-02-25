@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+</head>
+
+<body>
+<div ng-app="">
+MaheshController1:(default value assigned)<br/><br/>
+<div ng-controller="MaheshController1">
+{{name + gender}}<br/><br/>
+</div>
+
+
+MaheshController2:(values manupulated in controller)<br/><br/>
+<div ng-controller="MaheshController2">
+<input type="text" ng-model="name"/>
+<input type="text" ng-model="surname"/><br/><br/>
+Your Complete name is
+"{{fullname()}}"
+</div>
+
+
+</div>
+<script>
+function MaheshController1($scope){
+$scope.name = "Mahesh"
+$scope.gender = "Male"
+}
+
+
+function MaheshController2($scope){
+$scope.name = "Mahesh"
+$scope.surname= "Kapoor"
+$scope.fullname=function(){
+return $scope.name+$scope.surname;
+}
+
+}
+</script>
+
+</body>
+</html>
